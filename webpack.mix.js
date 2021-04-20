@@ -16,4 +16,5 @@ mix.js('resources/js/app.js', 'public/js').vue()
         require('postcss-import'),
         require('tailwindcss'),
         require('autoprefixer'),
-    ]);
+    ])
+    .copyDirectory('resources/assets', 'public/assets');
