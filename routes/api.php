@@ -17,3 +17,12 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::get('/users', function (Request $request) {
+    $users =  [
+        ['id' => 1, 'name' => 'Mr Logic'],
+        ['id' => 2, 'name' => 'Mrs Logic'],
+    ];
+    return response()->json(['data' => $users], 200);
+});

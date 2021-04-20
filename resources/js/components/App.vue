@@ -6,13 +6,21 @@
         <div class="logos">
             <img src="/assets/images/mr_cat.jpg" width="240" alt="" />
         </div>
+        <div class="user-list">
+            <p v-for="user in users" :key="user.id">{{user.id}}. {{user.name}}</p>
+        </div>
     </div>
 </template>
 
 <script>
+import {getUsers} from "../services/UserService";
+
 export default {
-    mounted() {
-        console.log("Component mounted.");
+    data: () => ({
+        users: []
+    }),
+    async mounted() {
+        this.users = await getUsers()
     },
 };
 </script>
